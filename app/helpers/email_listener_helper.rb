@@ -1,0 +1,2 @@
+module EmailListenerHelper
+end
