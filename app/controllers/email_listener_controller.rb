@@ -10,7 +10,7 @@ class EmailListenerController < ApplicationController
 													:html => params["html"],
 													:to => clean_field(params["to"]),
 													:from => clean_field(params["from"]),
-													:subject => clean_field(params["subject"]),
+													:subject => clean_field(params["subject"])
 													)
 
 		respond_to do |format|
