@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.receive_email '/receive_email',  :controller => 'email_listener', :action => 'receive_email'
+  map.receive_email '/recieve_email',  :controller => 'email_listener', :action => 'receive_email'
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
