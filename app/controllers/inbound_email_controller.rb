@@ -1,8 +1,8 @@
-class EmailListenerController < ApplicationController
+class InboundEmailController < ApplicationController
 
 	skip_before_filter :verify_authenticity_token
 
-	def recieve_email
+	def create
 		@params = params
 		
 		#make sure request is a post
@@ -11,6 +11,7 @@ class EmailListenerController < ApplicationController
 													:to => clean_field(params["to"]),
 													:from => clean_field(params["from"]),
 													:subject => clean_field(params["subject"]),
+                          :photo => clean_field(params["attachment"])
 													)
 
 		respond_to do |format|
@@ -25,9 +26,13 @@ class EmailListenerController < ApplicationController
 		end
 	end
 
-	private
-		def clean_field(input_string)
-			input.string.gsub(/\n/,'') if input_string
-		end
+  def show
+    @inbound_email = InboundEmail.from
+  end
+		
+#  private
+#    def clean_field(input_string)
+#	    input.string.gsub(/\n/,'') if input_string
+#    end
 
 end

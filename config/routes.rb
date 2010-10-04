@@ -1,6 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
+  map.contact '/contact', :controller => 'pages', :action => 'contact'
+	map.about   '/about',   :controller => 'pages', :action => 'about'
+	map.help    '/help',    :controller => 'pages', :action => 'help'
   # The priority is based upon order of creation: first created -> highest priority.
 
+  map.resources :inbound_email, :only => :create  
+  
+  map.root :controller => 'pages', :action => 'home'
+  # map.root '/shit', :controller => 'pages', :action => 'home'
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
   # Keep in mind you can assign values other than :controller and :action
@@ -22,7 +29,7 @@ ActionController::Routing::Routes.draw do |map|
   #   map.resources :products do |products|
   #     products.resources :comments
   #     products.resources :sales, :collection => { :recent => :get }
-  #   end
+  #   end2
 
   # Sample resource route within a namespace:
   #   map.namespace :admin do |admin|
